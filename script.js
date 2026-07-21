@@ -7,7 +7,6 @@ let args = ["", "", ""];
 let currentArg = 0;
 
 // Render calculations to screen
-let currentScreen = "";
 let widthCount = 0;
 const MAXWIDTH = 12;
 
@@ -16,76 +15,54 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Function for Number Input
 function addValue(arg) {
-  if (arg === "0" && currentValue === "0") {
+  if (arg === "0" && args[currentArg] === "") {
     return;
   } else if (numbers.includes(arg)) {
-    currentScreen = currentScreen + arg;
     args[currentArg] = args[currentArg] + arg;
-    widthCount += 1;
   }
 }
 
 // Addition Function
 function calcAdd() {
-  if (args[0] === "") {
-    return;
-  } else if (currentArg === 0) {
-    currentScreen = currentScreen + ` + `;
-    args[currentArg + 1] = `+`;
-    widthCount += 3;
-    currentArg += 2;
-  } else {
-    return;
-  }
+  let num1 = parseFloat(args[0]);
+  let num2 = parseFloat(args[2]);
+  let result = (num1 + num2).toFixed(2);
+  return Number(result);
 }
 
 // Subtraction Function
 function calcSubtract() {
-  if (args[0] === "") {
-    return;
-  } else if (currentArg === 0) {
-    currentScreen = currentScreen + ` - `;
-    args[currentArg + 1] = `-`;
-    widthCount += 3;
-    currentArg += 2;
-  } else {
-    return;
-  }
+  let num1 = parseFloat(args[0]);
+  let num2 = parseFloat(args[2]);
+  let result = (num1 - num2).toFixed(2);
+  return Number(result);
 }
 
 // Multiplication Function
 function calcMultiply() {
-  if (args[0] === "") {
-    return;
-  } else if (currentArg === 0) {
-    currentScreen = currentScreen + ` * `;
-    args[currentArg + 1] = `*`;
-    widthCount += 3;
-    currentArg += 2;
-  } else {
-    return;
-  }
+  let num1 = parseFloat(args[0]);
+  let num2 = parseFloat(args[2]);
+  let result = (num1 * num2).toFixed(2);
+  return Number(result);
 }
 
 // Division Function
 function calcDivide() {
-  if (args[0] === "") {
-    return;
-  } else if (currentArg === 0) {
-    currentScreen = currentScreen + ` / `;
-    args[currentArg + 1] = `/`;
-    widthCount += 3;
-    currentArg += 2;
-  } else {
-    return;
-  }
+  let num1 = parseFloat(args[0]);
+  let num2 = parseFloat(args[2]);
+  let result = (num1 / num2).toFixed(2);
+  return Number(result);
 }
 
 function renderScreen() {
-  screenValue.value = currentScreen;
+  if (args[1] === "") {
+    widthCount = args[0].length;
+    screenValue.value = `${args[0]}`;
+  } else {
+    widthCount = args[0].length + args[1].length + args[2].length + 1;
+    screenValue.value = `${args[0]} ${args[1]} ${args[2]}`;
+  }
 }
-
-renderScreen(currentScreen);
 
 // Initialize all the buttons on the numpad
 const Button = {
@@ -161,29 +138,110 @@ Button.nine.addEventListener("click", function (e) {
 });
 
 Button.add.addEventListener("click", function (e) {
-  calcAdd();
+  if (args[0] === "") {
+    return;
+  } else if (currentArg === 0) {
+    args[currentArg + 1] = `+`;
+    currentArg += 2;
+  } else if (currentArg === 2) {
+    calculate();
+    args[currentArg + 1] = `+`;
+    currentArg += 2;
+  } else {
+    return;
+  }
   renderScreen();
 });
 
 Button.subtract.addEventListener("click", function (e) {
-  calcSubtract();
+  if (args[0] === "") {
+    return;
+  } else if (currentArg === 0) {
+    args[currentArg + 1] = `-`;
+    currentArg += 2;
+  } else if (currentArg === 2) {
+    calculate();
+    args[currentArg + 1] = `-`;
+    currentArg += 2;
+  } else {
+    return;
+  }
   renderScreen();
 });
 
 Button.multiply.addEventListener("click", function (e) {
-  calcMultiply();
+  if (args[0] === "") {
+    return;
+  } else if (currentArg === 0) {
+    args[currentArg + 1] = `*`;
+    currentArg += 2;
+  } else if (currentArg === 2) {
+    calculate();
+    args[currentArg + 1] = `*`;
+    currentArg += 2;
+  } else {
+    return;
+  }
   renderScreen();
 });
 
 Button.divide.addEventListener("click", function (e) {
-  calcDivide();
+  if (args[0] === "") {
+    return;
+  } else if (currentArg === 0) {
+    args[currentArg + 1] = `/`;
+    currentArg += 2;
+  } else if (currentArg === 2) {
+    calculate();
+    args[currentArg + 1] = `/`;
+    currentArg += 2;
+  } else {
+    return;
+  }
   renderScreen();
 });
 
 Button.clear.addEventListener("click", function (e) {
-  currentScreen = "";
   args = ["", "", ""];
   currentArg = 0;
-  widthCount = 0;
   renderScreen();
 });
+
+Button.enter.addEventListener("click", function (e) {
+  calculate();
+});
+
+function calculate() {
+  if (args[2] === "") {
+    return;
+  } else if (args[1] === "+") {
+    args[0] = calcAdd();
+    args[1] = "";
+    args[2] = "";
+    currentArg = 0;
+    renderScreen();
+  } else if (args[1] === "-") {
+    args[0] = calcSubtract();
+    args[1] = "";
+    args[2] = "";
+    currentArg = 0;
+    renderScreen();
+  } else if (args[1] === "*") {
+    args[0] = calcMultiply();
+    args[1] = "";
+    args[2] = "";
+    currentArg = 0;
+    renderScreen();
+  } else if (args[1] === "/") {
+    args[0] = calcDivide();
+    args[1] = "";
+    args[2] = "";
+    currentArg = 0;
+    renderScreen();
+  }
+}
+
+Button.backspace.addEventListener("click", function (e) {
+  if (args[0].length <= 0) {
+    return;
+  } 
