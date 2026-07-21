@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Calculator</title>
   </head>
   <body>
@@ -14,34 +14,34 @@
       </div>
 
       <div id="calc-screen">
-        <input autocomplete="off" type="text" id="screen" value="100" />
+        <input autocomplete="off" type="text" id="screen" value="" />
       </div>
 
       <div class="numpad">
-        <button class="single-digit">C</button>
+        <button class="single-digit" id="clear">C</button>
         <button class="single-digit">?</button>
         <button class="single-digit">?</button>
-        <button id="backspace">BACK</button>
+        <button class="single-word" id="backspace">BACK</button>
 
-        <button class="single-digit">7</button>
-        <button class="single-digit">8</button>
-        <button class="single-digit">9</button>
-        <button class="single-digit">+</button>
+        <button class="single-digit" id="seven">7</button>
+        <button class="single-digit" id="eight">8</button>
+        <button class="single-digit" id="nine">9</button>
+        <button class="single-digit" id="add">+</button>
 
-        <button class="single-digit">4</button>
-        <button class="single-digit">5</button>
-        <button class="single-digit">6</button>
-        <button class="single-digit">-</button>
+        <button class="single-digit" id="four">4</button>
+        <button class="single-digit" id="five">5</button>
+        <button class="single-digit" id="six">6</button>
+        <button class="single-digit" id="subtract">-</button>
 
-        <button class="single-digit">7</button>
-        <button class="single-digit">8</button>
-        <button class="single-digit">9</button>
-        <button class="single-digit">*</button>
+        <button class="single-digit" id="one">1</button>
+        <button class="single-digit" id="two">2</button>
+        <button class="single-digit" id="three">4</button>
+        <button class="single-digit" id="multiply">*</button>
 
-        <button class="single-digit">.</button>
-        <button id="zero" class="single-digit">0</button>
-        <button id="enter">ENTER</button>
-        <button class="single-digit">/</button>
+        <button class="single-digit" id="period">.</button>
+        <button class="single-digit" id="zero">0</button>
+        <button class="single-word" id="enter">ENTER</button>
+        <button class="single-digit" id="divide">/</button>
       </div>
     </div>
   </body>

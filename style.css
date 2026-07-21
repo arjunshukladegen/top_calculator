@@ -11,6 +11,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
 }
 
 /* CALCULATOR APP DIV */
@@ -53,12 +54,16 @@ body {
 
 #calc-screen {
   border: 1px solid black;
-  padding: 1rem;
+  padding: 0.5rem;
   display: grid;
   box-sizing: border-box;
   align-items: center;
   justify-items: center;
   min-height: 0;
+}
+
+#calc-screen input:focus {
+  outline: none;
 }
 
 #screen {
@@ -67,7 +72,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
   text-justify: center;
 }
@@ -94,19 +99,18 @@ body {
   user-select: none;
   width: 70%;
   height: 80%;
-  font-size: 1rem;
 }
 
 .numpad button:hover {
   background-color: grey;
 }
 
-/* .numpad #backspace,
-.numpad #enter {
-  grid-column: span 2;
-  width: 85%;
-} */
-
+/* Make single digit button text the correct size */
 .numpad .single-digit {
   font-size: 2rem;
+}
+
+/* Make single word button text the correct size */
+.numpad .single-word {
+  font-size: 1.5rem;
 }
