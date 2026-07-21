@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+    <title>Calculator</title>
   </head>
-  <body></body>
+  <body>
+    <div id="calculator-app">
+      <div id="calc-top">
+        <h1 id="heading">CALCULATOR</h1>
+      </div>
+
+      <div id="calc-screen">
+        <input autocomplete="off" type="text" id="screen" value="100" />
+      </div>
+
+      <div class="numpad">
+        <button class="single-digit">C</button>
+        <button class="single-digit">?</button>
+        <button class="single-digit">?</button>
+        <button id="backspace">BACK</button>
+
+        <button class="single-digit">7</button>
+        <button class="single-digit">8</button>
+        <button class="single-digit">9</button>
+        <button class="single-digit">+</button>
+
+        <button class="single-digit">4</button>
+        <button class="single-digit">5</button>
+        <button class="single-digit">6</button>
+        <button class="single-digit">-</button>
+
+        <button class="single-digit">7</button>
+        <button class="single-digit">8</button>
+        <button class="single-digit">9</button>
+        <button class="single-digit">*</button>
+
+        <button class="single-digit">.</button>
+        <button id="zero" class="single-digit">0</button>
+        <button id="enter">ENTER</button>
+        <button class="single-digit">/</button>
+      </div>
+    </div>
+  </body>
 </html>

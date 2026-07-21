@@ -1,1 +1,112 @@
 /* Style Sheet for Calculator App */
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* CALCULATOR APP DIV */
+#calculator-app {
+  border: 3px solid black;
+  display: grid;
+  box-sizing: border-box;
+  height: 90vh;
+  aspect-ratio: 4 / 5;
+  background-color: green;
+  /* flex-direction: column;
+  justify-content: space-evenly; */
+  padding: 1rem;
+  border-radius: 2rem;
+  grid-template-rows: 15% 20% 65%;
+}
+
+/* TOP, SCREEN, AND NUMBERS FOR CALCULATOR */
+#calc-top {
+  border: 1px solid black;
+  padding: 1rem;
+  display: grid;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
+}
+
+/* HEADING */
+#heading {
+  background-color: blue;
+  color: grey;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0;
+  box-sizing: border-box;
+  width: 90%;
+}
+
+#calc-screen {
+  border: 1px solid black;
+  padding: 1rem;
+  display: grid;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
+}
+
+#screen {
+  border: 1px solid black;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  text-align: center;
+  text-justify: center;
+}
+
+.numpad {
+  border: 1px solid black;
+  padding: 1rem;
+  display: grid;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 0;
+}
+
+.numpad button {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  text-align: center;
+  text-justify: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  width: 70%;
+  height: 80%;
+  font-size: 1rem;
+}
+
+.numpad button:hover {
+  background-color: grey;
+}
+
+/* .numpad #backspace,
+.numpad #enter {
+  grid-column: span 2;
+  width: 85%;
+} */
+
+.numpad .single-digit {
+  font-size: 2rem;
+}
