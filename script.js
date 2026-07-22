@@ -15,9 +15,9 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Function for Number Input
 function addValue(arg) {
-  if (arg === "0" && args[currentArg] === "") {
+  if (arg === "0" && args[currentArg] === "0") {
     return;
-  } else if (numbers.includes(arg)) {
+  } else if (numbers.includes(arg) && args[currentArg].length < 5) {
     args[currentArg] = args[currentArg] + arg;
   }
 }
@@ -215,25 +215,25 @@ function calculate() {
   if (args[2] === "") {
     return;
   } else if (args[1] === "+") {
-    args[0] = calcAdd();
+    args[0] = String(calcAdd());
     args[1] = "";
     args[2] = "";
     currentArg = 0;
     renderScreen();
   } else if (args[1] === "-") {
-    args[0] = calcSubtract();
+    args[0] = String(calcSubtract());
     args[1] = "";
     args[2] = "";
     currentArg = 0;
     renderScreen();
   } else if (args[1] === "*") {
-    args[0] = calcMultiply();
+    args[0] = String(calcMultiply());
     args[1] = "";
     args[2] = "";
     currentArg = 0;
     renderScreen();
   } else if (args[1] === "/") {
-    args[0] = calcDivide();
+    args[0] = String(calcDivide());
     args[1] = "";
     args[2] = "";
     currentArg = 0;
@@ -244,4 +244,21 @@ function calculate() {
 Button.backspace.addEventListener("click", function (e) {
   if (args[0].length <= 0) {
     return;
-  } 
+  } else if (currentArg === 2 && args[currentArg] === "") {
+    args[1] = "";
+    currentArg = 0;
+    renderScreen();
+  } else {
+    args[currentArg] = args[currentArg].slice(0, args[currentArg].length - 1);
+    renderScreen();
+  }
+});
+
+Button.period.addEventListener("click", function (e) {
+  if (args[currentArg] === "") {
+    return;
+  } else if (args[currentArg].includes(".") === false) {
+    args[currentArg] += ".";
+    renderScreen();
+  }
+});

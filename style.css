@@ -16,23 +16,23 @@ body {
 
 /* CALCULATOR APP DIV */
 #calculator-app {
-  border: 3px solid black;
+  border: 4px solid black;
   display: grid;
   box-sizing: border-box;
   height: 90vh;
   aspect-ratio: 4 / 5;
-  background-color: green;
+  background-color: #ffb20f;
+
   /* flex-direction: column;
   justify-content: space-evenly; */
-  padding: 1rem;
-  border-radius: 2rem;
-  grid-template-rows: 15% 20% 65%;
+  padding: 0.5rem;
+  border-radius: 3rem;
+  grid-template-rows: 10% 25% 65%;
 }
 
 /* TOP, SCREEN, AND NUMBERS FOR CALCULATOR */
 #calc-top {
-  border: 1px solid black;
-  padding: 1rem;
+  padding: 0.5rem;
   display: grid;
   box-sizing: border-box;
   align-items: center;
@@ -41,19 +41,20 @@ body {
 }
 
 /* HEADING */
-#heading {
+/* #heading {
   background-color: blue;
   color: grey;
   border-radius: 1rem;
+  font-size: 4rem;
   text-align: center;
   padding: 0.5rem;
   margin: 0;
   box-sizing: border-box;
-  width: 90%;
-}
+  width: 100%;
+  height: 100%;
+} */
 
 #calc-screen {
-  border: 1px solid black;
   padding: 0.5rem;
   display: grid;
   box-sizing: border-box;
@@ -67,18 +68,20 @@ body {
 }
 
 #screen {
-  border: 1px solid black;
-  background-color: white;
+  border: 3px solid black;
+  border-radius: 2rem;
+  background-color: #ebede3;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  font-size: 4rem;
+  font-size: 5rem;
   text-align: center;
   text-justify: center;
 }
 
 .numpad {
-  border: 1px solid black;
+  border: 3px solid black;
+  border-radius: 2rem;
   padding: 1rem;
   display: grid;
   box-sizing: border-box;
@@ -89,7 +92,9 @@ body {
 }
 
 .numpad button {
-  background-color: white;
+  background-color: #ebede3;
+  color: black;
+  /* -webkit-text-stroke: 0.5px black; */
   border: 1px solid black;
   border-radius: 1rem;
   text-align: center;
@@ -107,10 +112,10 @@ body {
 
 /* Make single digit button text the correct size */
 .numpad .single-digit {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 /* Make single word button text the correct size */
 .numpad .single-word {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
