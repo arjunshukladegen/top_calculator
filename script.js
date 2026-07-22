@@ -85,6 +85,8 @@ const Button = {
   enter: document.querySelector("#enter"),
   clear: document.querySelector("#clear"),
   backspace: document.querySelector("#backspace"),
+  mystery1: document.querySelector("#mystery1"),
+  mystery2: document.querySelector("#mystery2"),
 };
 
 Button.zero.addEventListener("click", function (e) {
@@ -262,3 +264,95 @@ Button.period.addEventListener("click", function (e) {
     renderScreen();
   }
 });
+
+Button.mystery1.addEventListener("click", function (e) {
+  randomizeAll();
+});
+// Function for randomizing hex codes
+
+function randomHex() {
+  hexCode = "#";
+  for (let i = 0; i < 6; i++) {
+    // Random number from 0-15
+    let randomNum = Math.round(Math.random() * 100) % 16;
+    if (randomNum > 9) {
+      if (randomNum === 10) {
+        randomNum = "A";
+      } else if (randomNum === 11) {
+        randomNum = "B";
+      } else if (randomNum === 12) {
+        randomNum = "C";
+      } else if (randomNum === 13) {
+        randomNum = "D";
+      } else if (randomNum === 14) {
+        randomNum = "E";
+      } else if (randomNum === 15) {
+        randomNum = "F";
+      }
+    }
+    hexCode = hexCode + randomNum;
+  }
+  return hexCode;
+}
+
+function randomizeAll() {
+  Button.clear.style.backgroundColor = randomHex();
+  Button.clear.style.color = randomHex();
+
+  Button.mystery1.style.backgroundColor = randomHex();
+  Button.mystery1.style.color = randomHex();
+
+  Button.mystery2.style.backgroundColor = randomHex();
+  Button.mystery2.style.color = randomHex();
+
+  Button.backspace.style.backgroundColor = randomHex();
+  Button.backspace.style.color = randomHex();
+
+  Button.seven.style.backgroundColor = randomHex();
+  Button.seven.style.color = randomHex();
+
+  Button.eight.style.backgroundColor = randomHex();
+  Button.eight.style.color = randomHex();
+
+  Button.nine.style.backgroundColor = randomHex();
+  Button.nine.style.color = randomHex();
+
+  Button.add.style.backgroundColor = randomHex();
+  Button.add.style.color = randomHex();
+
+  Button.subtract.style.backgroundColor = randomHex();
+  Button.subtract.style.color = randomHex();
+
+  Button.four.style.backgroundColor = randomHex();
+  Button.four.style.color = randomHex();
+
+  Button.five.style.backgroundColor = randomHex();
+  Button.five.style.color = randomHex();
+
+  Button.six.style.backgroundColor = randomHex();
+  Button.six.style.color = randomHex();
+
+  Button.one.style.backgroundColor = randomHex();
+  Button.one.style.color = randomHex();
+
+  Button.two.style.backgroundColor = randomHex();
+  Button.two.style.color = randomHex();
+
+  Button.three.style.backgroundColor = randomHex();
+  Button.three.style.color = randomHex();
+
+  Button.multiply.style.backgroundColor = randomHex();
+  Button.multiply.style.color = randomHex();
+
+  Button.period.style.backgroundColor = randomHex();
+  Button.period.style.color = randomHex();
+
+  Button.zero.style.backgroundColor = randomHex();
+  Button.zero.style.color = randomHex();
+
+  Button.enter.style.backgroundColor = randomHex();
+  Button.enter.style.color = randomHex();
+
+  Button.divide.style.backgroundColor = randomHex();
+  Button.divide.style.color = randomHex();
+}
